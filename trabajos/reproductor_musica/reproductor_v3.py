@@ -42,8 +42,8 @@ ruta = "canciones"
 pygame.mixer.init()
 
 root = Tk()
-root.minsize(500, 350)
-root.maxsize(500, 350)
+root.minsize(500, 450)
+root.maxsize(500, 450)
 
 # MENU ARRIBA
 menu = Menu(root)
@@ -53,17 +53,22 @@ abrir = Menu(menu, tearoff=0)
 abrir.add_command(label="Importar...", command=seleccionar_dir)
 menu.add_cascade(label="Archivo", menu=abrir)
 
+# MARCO LISTBOX PNG
+marco_png = PhotoImage(file='image/frame.png')
+frame1 = Canvas(root, width=495, height=407, background='#333333', highlightthickness=0)
+frame1.create_image(245, 151, image=marco_png)
+frame1.place(x=1, y=0)
 
 # LISTBOX
 listbox1 = Listbox(root, width=40, border=10, background='#999999')
-listbox1.pack(padx=20, pady=20)
+listbox1.pack(padx=20, pady=40)
 listbox1.bind("<<ListboxSelect>>", lambda event: extraer_dato_lb1(listbox1.get(ACTIVE)))
 # for i in os.listdir('canciones'):
 #     listbox1.insert(END, i)
 
 # BOTONES
 botones = Frame(root, background='#333333')
-botones.pack(padx=20, pady=0)
+botones.pack(padx=20, pady=20)
 
 boton1_png = PhotoImage(file='image/atras_40x40.png')
 boton1 = Button(botones, text="Anterior", image=boton1_png, background='#999999', highlightthickness=0, border=5)
