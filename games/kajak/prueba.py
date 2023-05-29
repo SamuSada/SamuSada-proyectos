@@ -1,6 +1,4 @@
 import sys
-import time
-
 import pygame
 import random
 from pygame.locals import *
@@ -104,6 +102,3 @@ while ejecutando:
         player.kill()
         screen.blit(background_lose, [0, 0])
         ejecutando = False
-
-
-
